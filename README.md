@@ -23,3 +23,4 @@ dans une application Android.
 2. Les images de profiles des utilisateurs ne sont pas affichés, pouvez-vous corriger cela? 
 3. Commit et push les derniers changements. 
 
+# Contributeurs
