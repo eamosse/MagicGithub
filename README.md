@@ -23,12 +23,13 @@ dans une application Android.
 2. Les images de profiles des utilisateurs ne sont pas affichés, pouvez-vous corriger cela? 
 3. Commit et push les derniers changements. 
 
-## Toujours plus
-On va modifier le comportement du bouton supprimer de l'application. Quand on clique sur le bouton delete :
+## Améliorer l'application
+- Utiliser le viewbinding pour référencer les éléments de vues dans l'acitivité et l'adapter
+- On va modifier le comportement du bouton supprimer de l'application pour qu'en cliquant sur le bouton delete :
 1. On ne supprime plus l'utilisateur, mais on change son statut (activé <-> desactivé)
 2. On met un background 'rouge' sur la cellule quand l'utilisateur est désactivé et blanc quand il est activé
-3. On change le visuel du bouton delete : `poubelle` si l'utilisateur est activé et `restore` sit l'utilisateur est désactivé
-4. Finalement, quan on clique sur le bouton delete ou restore, on change le statut de l'utilisateur
+3. On change le visuel du bouton delete : `poubelle` si l'utilisateur est activé et `restore` si l'utilisateur est désactivé
+4. Finalement, quand on clique sur le bouton delete ou restore, on change le statut de l'utilisateur
 
 ### Et on fixe les tests 
 
