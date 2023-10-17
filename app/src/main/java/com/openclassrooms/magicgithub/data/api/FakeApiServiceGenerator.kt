@@ -1,6 +1,6 @@
-package com.openclassrooms.magicgithub.api
+package com.openclassrooms.magicgithub.data.api
 
-import com.openclassrooms.magicgithub.model.User
+import com.openclassrooms.magicgithub.data.model.User
 import java.util.*
 
 object FakeApiServiceGenerator {

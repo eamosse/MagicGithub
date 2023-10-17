@@ -1,7 +1,7 @@
-package com.openclassrooms.magicgithub.repository
+package com.openclassrooms.magicgithub.data.repository
 
-import com.openclassrooms.magicgithub.api.ApiService
-import com.openclassrooms.magicgithub.model.User
+import com.openclassrooms.magicgithub.data.api.ApiService
+import com.openclassrooms.magicgithub.data.model.User
 
 class UserRepository(
     private val apiService: ApiService

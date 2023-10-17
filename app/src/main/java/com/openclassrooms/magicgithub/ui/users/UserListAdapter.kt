@@ -1,18 +1,20 @@
-package com.openclassrooms.magicgithub.ui.user_list
+package com.openclassrooms.magicgithub.ui.users
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
 import com.openclassrooms.magicgithub.R
-import com.openclassrooms.magicgithub.model.User
-import com.openclassrooms.magicgithub.utils.UserDiffCallback
+import com.openclassrooms.magicgithub.data.model.User
+import com.openclassrooms.magicgithub.ui.utils.UserDiffCallback
 
-class UserListAdapter(  // FOR CALLBACK ---
+class UserListAdapter(
     private val callback: Listener
 ) : RecyclerView.Adapter<ListUserViewHolder>() {
-    // FOR DATA ---
-    private var users: List<User> = ArrayList()
+
+    // Permet de gérer la mise à jour de la liste de données
+    private val mDiffer: AsyncListDiffer<User> =
+        AsyncListDiffer(this, UserDiffCallback())
 
     interface Listener {
         fun onClickDelete(user: User)
@@ -26,17 +28,15 @@ class UserListAdapter(  // FOR CALLBACK ---
     }
 
     override fun onBindViewHolder(holder: ListUserViewHolder, position: Int) {
-        holder.bind(users[position], callback)
+        holder.bind(mDiffer.currentList[position], callback)
     }
 
     override fun getItemCount(): Int {
-        return users.size
+        return mDiffer.currentList.size
     }
 
     // PUBLIC API ---
     fun updateList(newList: List<User>) {
-        val diffResult = DiffUtil.calculateDiff(UserDiffCallback(newList, users))
-        users = newList
-        diffResult.dispatchUpdatesTo(this)
+        mDiffer.submitList(newList)
     }
 }

@@ -1,22 +1,30 @@
-package com.openclassrooms.magicgithub.ui.user_list
+package com.openclassrooms.magicgithub.ui.users
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.openclassrooms.magicgithub.R
 import com.openclassrooms.magicgithub.di.Injection.getRepository
-import com.openclassrooms.magicgithub.model.User
+import com.openclassrooms.magicgithub.data.model.User
 
 class ListUserActivity : AppCompatActivity(), UserListAdapter.Listener {
-    // FOR DESIGN ---
+    // TODO : Utiliser le viewbiding pour accéder aux éléments de la vue
     lateinit var recyclerView: RecyclerView
     lateinit var fab: FloatingActionButton
 
-    // FOR DATA ---
-    private lateinit var adapter: UserListAdapter
+    // By lazy permet de faire du chargement parresseux,
+    // L'adapteur sera crée au premier appel
+    private val adapter: UserListAdapter by lazy {
+        UserListAdapter(this)
+    }
+
+    private val viewModel: UserViewModel by lazy {
+        ViewModelProvider(this)[UserViewModel::class.java]
+    }
 
     // OVERRIDE ---
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,32 +36,25 @@ class ListUserActivity : AppCompatActivity(), UserListAdapter.Listener {
 
     override fun onResume() {
         super.onResume()
-        loadData()
+        viewModel.users.observe(this) {
+            adapter.updateList(it)
+        }
     }
 
-    // CONFIGURATION ---
     private fun configureRecyclerView() {
         recyclerView = findViewById(R.id.activity_list_user_rv)
-        adapter = UserListAdapter(this)
         recyclerView.adapter = adapter
     }
 
     private fun configureFab() {
         fab = findViewById(R.id.activity_list_user_fab)
-        fab.setOnClickListener(View.OnClickListener { view: View? ->
-            getRepository().addRandomUser()
-            loadData()
-        })
+        fab.setOnClickListener {
+            // TOD0 Fais le nécessaire pour ajouter un nouvel utilisateur
+        }
     }
 
-    private fun loadData() {
-        adapter.updateList(getRepository().getUsers())
-    }
-
-    // ACTIONS ---
     override fun onClickDelete(user: User) {
-        Log.d(ListUserActivity::class.java.name, "User tries to delete a item.")
-        getRepository().deleteUser(user)
-        loadData()
+        // TODO Ajouter des logs
+        viewModel.deleteUser(user)
     }
 }
