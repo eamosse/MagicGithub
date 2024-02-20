@@ -1,11 +1,11 @@
-package com.openclassrooms.magicgithub.ui.users
+package org.mbds.unice.github.ui.users
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.openclassrooms.magicgithub.data.model.User
-import com.openclassrooms.magicgithub.data.repository.UserRepository
-import com.openclassrooms.magicgithub.di.Injection
+import org.mbds.unice.github.data.model.User
+import org.mbds.unice.github.data.repository.UserRepository
+import org.mbds.unice.github.di.Injection
 
 
 class UserViewModel : ViewModel() {

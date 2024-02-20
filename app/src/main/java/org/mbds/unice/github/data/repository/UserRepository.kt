@@ -1,7 +1,7 @@
-package com.openclassrooms.magicgithub.data.repository
+package org.mbds.unice.github.data.repository
 
-import com.openclassrooms.magicgithub.data.api.ApiService
-import com.openclassrooms.magicgithub.data.model.User
+import org.mbds.unice.github.data.api.ApiService
+import org.mbds.unice.github.data.model.User
 
 class UserRepository(
     private val apiService: ApiService

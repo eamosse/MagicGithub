@@ -1,6 +1,6 @@
-package com.openclassrooms.magicgithub.data.api
+package org.mbds.unice.github.data.api
 
-import com.openclassrooms.magicgithub.data.model.User
+import org.mbds.unice.github.data.model.User
 
 interface ApiService {
     fun getUsers(): List<User>

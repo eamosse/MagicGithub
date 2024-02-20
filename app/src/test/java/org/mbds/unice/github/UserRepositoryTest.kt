@@ -1,10 +1,10 @@
-package com.openclassrooms.magicgithub
+package org.mbds.unice.github
 
-import com.openclassrooms.magicgithub.data.api.FakeApiServiceGenerator.FAKE_USERS
-import com.openclassrooms.magicgithub.data.api.FakeApiServiceGenerator.FAKE_USERS_RANDOM
-import com.openclassrooms.magicgithub.di.Injection
-import com.openclassrooms.magicgithub.data.model.User
-import com.openclassrooms.magicgithub.data.repository.UserRepository
+import org.mbds.unice.github.data.api.FakeApiServiceGenerator.FAKE_USERS
+import org.mbds.unice.github.data.api.FakeApiServiceGenerator.FAKE_USERS_RANDOM
+import org.mbds.unice.github.di.Injection
+import org.mbds.unice.github.data.model.User
+import org.mbds.unice.github.data.repository.UserRepository
 import org.junit.Assert
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue

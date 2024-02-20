@@ -1,6 +1,6 @@
-package com.openclassrooms.magicgithub.data.api
+package org.mbds.unice.github.data.api
 
-import com.openclassrooms.magicgithub.data.model.User
+import org.mbds.unice.github.data.model.User
 
 class FakeApiService : ApiService {
     private val _users = FakeApiServiceGenerator.FAKE_USERS
@@ -24,7 +24,7 @@ class FakeApiService : ApiService {
     /**
      * Delete a [User] from the [FakeApiService.users] list.
      */
-    override fun deleteUser(user: User) {
+    override fun deleteUser(username: User) {
         TODO("Delete a user")
     }
 }

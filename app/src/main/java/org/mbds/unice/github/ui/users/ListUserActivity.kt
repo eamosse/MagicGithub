@@ -1,18 +1,15 @@
-package com.openclassrooms.magicgithub.ui.users
+package org.mbds.unice.github.ui.users
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.openclassrooms.magicgithub.R
-import com.openclassrooms.magicgithub.di.Injection.getRepository
-import com.openclassrooms.magicgithub.data.model.User
+import org.mbds.unice.github.R
+import org.mbds.unice.github.data.model.User
 
 class ListUserActivity : AppCompatActivity(), UserListAdapter.Listener {
-    // TODO : Utiliser le viewbiding pour accéder aux éléments de la vue
+    // TODO : Utiliser viewBinding
     lateinit var recyclerView: RecyclerView
     lateinit var fab: FloatingActionButton
 
@@ -26,7 +23,6 @@ class ListUserActivity : AppCompatActivity(), UserListAdapter.Listener {
         ViewModelProvider(this)[UserViewModel::class.java]
     }
 
-    // OVERRIDE ---
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_user)
@@ -49,12 +45,12 @@ class ListUserActivity : AppCompatActivity(), UserListAdapter.Listener {
     private fun configureFab() {
         fab = findViewById(R.id.activity_list_user_fab)
         fab.setOnClickListener {
-            // TOD0 Fais le nécessaire pour ajouter un nouvel utilisateur
+            TODO("Ajouter un utilisateur aléatoire")
         }
     }
 
     override fun onClickDelete(user: User) {
-        // TODO Ajouter des logs
-        viewModel.deleteUser(user)
+        TODO("Ajouter des logs pour tracer les actions de l'utilisateur")
+        TODO("Ajouter une boite de dialogue pour confirmer la suppression et supprimer l'utilisateur si l'utilisateur confirme")
     }
 }

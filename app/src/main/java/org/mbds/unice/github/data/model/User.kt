@@ -1,4 +1,4 @@
-package com.openclassrooms.magicgithub.data.model
+package org.mbds.unice.github.data.model
 
 data class User(
     val id: String,

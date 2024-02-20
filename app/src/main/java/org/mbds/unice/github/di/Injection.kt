@@ -1,7 +1,7 @@
-package com.openclassrooms.magicgithub.di
+package org.mbds.unice.github.di
 
-import com.openclassrooms.magicgithub.data.api.FakeApiService
-import com.openclassrooms.magicgithub.data.repository.UserRepository
+import org.mbds.unice.github.data.api.FakeApiService
+import org.mbds.unice.github.data.repository.UserRepository
 
 object Injection {
     private var repository: UserRepository? = null

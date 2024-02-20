@@ -1,7 +1,7 @@
-package com.openclassrooms.magicgithub.ui.utils
+package org.mbds.unice.github.ui.utils
 
 import androidx.recyclerview.widget.DiffUtil
-import com.openclassrooms.magicgithub.data.model.User
+import org.mbds.unice.github.data.model.User
 
 class UserDiffCallback : DiffUtil.ItemCallback<User>() {
 
